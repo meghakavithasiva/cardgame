@@ -11,7 +11,12 @@ class Game:
         for i in range(15):
             player1 = self.pick.pick(i*2)
             player2 = self.pick.pick((i*2)+1)
-            self.rounds.append(Details(str(i+1), player1, player2))
+            details = Details(str(i + 1), player1, player2)
+            print(details.__str__())
+            self.rounds.append(details)
+            next_pick = input('Coninue y/n: ')
+            if next_pick == 'n':
+                break
 
     def print_result(self):
         print('Round    Player1    Player2    Winner')
