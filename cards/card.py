@@ -7,6 +7,9 @@ class Card:
     def __str__(self) -> str:
         return '{}{}'.format(self.colour, self.value)
 
+    def pretty(self):
+        return '{}{}'.format(self.colour, self.value)
+
     def __call__(self, *args):
         return self
 
