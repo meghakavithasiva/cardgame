@@ -5,7 +5,7 @@ import card
 class Cards:
 
     def __init__(self):
-        cards = list(map(lambda x: card.Card('G', x+1), range(10)))
+        cards = list(map(lambda x: card.Card('B', x+1), range(10)))
         for i in list(map(lambda x: card.Card('R', x+1), range(10))):
             cards.append(i)
         for i in list(map(lambda x: card.Card('Y', x + 1), range(10))):
