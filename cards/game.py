@@ -11,9 +11,10 @@ class Game:
 
     def start_game(self):
         self.result = Result()
-        for i in range(15):
-            player1 = self.pick.pick(i*2)
-            player2 = self.pick.pick((i*2)+1)
+        r = 1
+        while len(self.pick.cards.cards) > 0:
+            player1 = self.pick.pick()
+            player2 = self.pick.pick()
             winner = self.workout_round(player1, player2)
             if winner == 1:
                 self.result.player1.append(player1)
@@ -21,7 +22,8 @@ class Game:
             else:
                 self.result.player2.append(player1)
                 self.result.player2.append(player2)
-            details = Details(str(i + 1), player1, player2, winner)
+            details = Details(r, player1, player2, winner)
+            r += 1
             # print(details.__str__())
             self.rounds.append(details)
             # next_pick = input('Continue y/n: ')
@@ -76,13 +78,10 @@ class Details:
         self.winner = winner
 
     def __str__(self):
-        return ' {}          {}         {}         {}'.format(self.round_number, self.player1.pretty(), self.player2.pretty(), self.winner)
+        return ' {}          {}         {}         {}'.format(self.round_number, self.player1.pretty(),
+                                                              self.player2.pretty(), self.winner)
 
 
 game = Game()
 game.start_game()
 game.print_result()
-
-
-
-
