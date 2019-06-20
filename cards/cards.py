@@ -5,15 +5,13 @@ import card
 class Cards:
 
     def __init__(self):
-        cards = list(map(lambda x: card.Card('B', x+1), range(10)))
-        for i in list(map(lambda x: card.Card('R', x+1), range(10))):
-            cards.append(i)
-        for i in list(map(lambda x: card.Card('Y', x + 1), range(10))):
-            cards.append(i)
-        self.cards = cards
+        colours = ['B', 'R', 'Y']
+        random.shuffle(colours)
+        self.cards = []
+        for c in colours:
+            self.cards = self.cards + list(map(lambda x: card.Card(c, x+1), range(10)))
         random.shuffle(self.cards)
 
     def __str__(self) -> str:
         return ', '.join(map(str, self.cards))
-
 
