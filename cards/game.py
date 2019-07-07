@@ -1,10 +1,10 @@
 import cards
-import pick
+from pick import Pick
 
 
 class Game:
     def __init__(self):
-        self.pick = pick.Pick()
+        self.pick = Pick()
         self.rounds = []
         self.result = None
         self.details = []

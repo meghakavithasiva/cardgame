@@ -1,10 +1,10 @@
-import cards
+from cards import Cards
 
 
 class Pick:
 
     def __init__(self):
-        self.cards = cards.Cards()
+        self.cards = Cards()
 
     def pick(self):
         return self.cards.cards.pop()

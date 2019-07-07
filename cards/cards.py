@@ -9,7 +9,9 @@ class Cards:
         random.shuffle(colours)
         self.cards = []
         for c in colours:
-            self.cards = self.cards + list(map(lambda x: card.Card(c, x+1), range(10)))
+            for i in range(10):
+                self.cards.append(card.Card(c, i+1))
+
         random.shuffle(self.cards)
 
     def __str__(self) -> str:
