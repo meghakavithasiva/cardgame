@@ -3,3 +3,4 @@ venv/*
 .idea/*
 user.txt
 **/user.txt
+**/results
