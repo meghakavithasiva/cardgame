@@ -2,9 +2,6 @@ import cards
 import os.path
 from pick import Pick
 
-from user.exceptions import WrongUserException, WrongPasswordException
-
-
 class Game:
     def __init__(self):
         self.user1 = ''
@@ -108,7 +105,7 @@ class Game:
             name = input('Enter Player' + str(i+1) + ': ')
             pwd = input("Enter password:  ")
             pwd = pwd.rstrip()
-            file_name='..\\user\\user.txt'
+            file_name='..'+ os.sep + 'user' + os.sep + 'user.txt'
             if os.path.isfile(file_name):
                 with open(file_name, 'r') as f:
                     for line in f:
@@ -162,6 +159,15 @@ class ResultToPrint:
     def __init__(self, player, quantity):
         self.player = player
         self.quantity = quantity
+
+
+class WrongPasswordException(Exception):
+    def __init__(self, *args, **kwargs):
+        Exception.__init__(self, *args, **kwargs)
+
+class WrongUserException(Exception):
+    def __init__(self, *args, **kwargs):
+        Exception.__init__(self, *args, **kwargs)
 
 game = Game()
 game.start_game()
